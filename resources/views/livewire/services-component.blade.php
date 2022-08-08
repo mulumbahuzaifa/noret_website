@@ -49,28 +49,43 @@
         </div>
     </section>
 
-    <!-- Subscribe -->
-    <section class="section-full dz-subscribe style-1 bg-gray">
+    <section class="content-inner-2 service-wrapper-2 overlay-black-dark" style="background-image:url('{{ asset('assets/images/background/bg7.jpg') }}');background-size: cover;">
         <div class="container">
-            <div class="subscribe-inner row align-items-center">
-                <div class="col-lg-6">
-                    <div class="title-head">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <h3 class="title text-white">SIGN UP TO GET LATEST UPDATES</h3>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <form class="dzSubscribe" action="script/mailchamp.php" method="post">
-                        <div class="dzSubscribeMsg"></div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input name="dzEmail" required="required" type="email" class="form-control" placeholder="Email Address...">
-                                <div class="input-group-addon">
-                                    <button name="submit" value="Submit" type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i></button>
+            <div class="section-head style-1 text-center aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h6 class="sub-title text-primary">Our Services</h6>
+            </div>
+            @php
+                $i = 01;
+                $d = 200;
+            @endphp
+            <div class="btn-center-lr">
+                <div class="swiper-container service-slider">
+                    <div class="swiper-wrapper">
+                        @foreach ($services as $service)
+                            <div class="swiper-slide">
+                                <div class="content-box overlay-shine aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ 200 + $d++ }}">
+                                    <div class="dz-media">
+                                        <img src="{{ asset('assets/images/services') }}/{{ $service->image }}" style="height: 200px;" alt="{{ $service->name }}">
+                                    </div>
+                                    <div class="dz-info" data-num="@if($i < 10)0{{ $i++ }} @else {{ $i++ }} @endif">
+
+                                        <div class="icon-lg m-b20 text-primary">
+                                            <i class="flaticon-cogwheel"></i>
+                                        </div>
+                                        <h4 class="title dz-title text-capitalized"><a href="{{ route('services.details', ['slug' => $service->slug]) }}">{{ $service->name }}</a></h4>
+                                        <p class="m-b0">{{ str_limit(strip_tags($service->description),100,'...') }}</p>
+                                    </div>
+                                    <div class="dz-bottom">
+                                        <a class="btn btn-primary d-block" href="{{ route('services.details', ['slug' => $service->slug]) }}">READ MORE</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="swiper-button">
+                    <div class="btn-prev swiper-button-prev-service"><i class="las la-angle-left"></i></div>
+                    <div class="btn-next swiper-button-next-service"><i class="las la-angle-right"></i></div>
                 </div>
             </div>
         </div>

@@ -19,32 +19,24 @@
                   <li>
                     <i class="flaticon-placeholder"></i>
                     <span
-                      >1247/Plot No. 39, 15th Phase, Huab Colony,
-                      Kukatpally, Hyderabad</span
+                      >{{ $setting->address }}</span
                     >
                   </li>
                   <li>
                     <i class="flaticon-call"></i>
                     <span
-                      >1234 456 7895 <br />
-                      1234 456 7895</span
+                      ><a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a><br />
+                      <a href="tel:{{ $setting->phone2 }}">{{ $setting->phone2 }}</a></span
                     >
                   </li>
                   <li>
                     <i class="flaticon-chat-1"></i>
                     <span
                       ><a
-                        href="/cdn-cgi/l/email-protection"
-                        class="__cf_email__"
-                        data-cfemail="a9c0c7cfc6e9ccd1c8c4d9c5cc87cac6c4"
-                        >[email&#160;protected]</a
+                        href="mail:{{ $setting->email }}"
+                        >{{ $setting->email }}</a
                       >
-                      <br /><a
-                        href="/cdn-cgi/l/email-protection"
-                        class="__cf_email__"
-                        data-cfemail="92e1f7e0e4fbf1f7e1d2f7eaf3ffe2fef7bcf1fdff"
-                        >[email&#160;protected]</a
-                      ></span
+                      </span
                     >
                   </li>
                 </ul>
@@ -60,11 +52,24 @@
             <div class="widget widget_services">
               <h4 class="footer-title">Our Links</h4>
               <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog-grid.html">News</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
+                <li>
+                <a href="/"><span>Home</span></a>
+                </li>
+                <li>
+                <a href="{{ route('about') }}"><span>About us</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('services') }}"><span>Services</span></a>
+                </li>
+                <li>
+                <a href="{{ route('sectors') }}"><span>Sectors</span></a>
+                </li>
+                <li>
+                <a href="{{ route('blogs') }}"><span>Blog</span></a>
+                </li>
+                <li>
+                <a href="{{ route('contact') }}"><span>Contact us</span></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -94,44 +99,29 @@
             <div class="widget recent-posts-entry">
               <h4 class="footer-title">Latest Post</h4>
               <div class="widget-post-bx">
+                @foreach ($l_blogs as $l_blog)
                 <div class="widget-post clearfix">
-                  <div class="dz-media">
-                    <img src="{{ asset('assets/images/blog/recent-blog/pic1.jpg') }}" alt="" />
-                  </div>
-                  <div class="dz-info">
-                    <h6 class="title">
-                      <a href="blog-details.html"
-                        >Aliqua sodales vestibulum risus nterdum malesuad</a
-                      >
-                    </h6>
-                    <div class="dz-meta">
-                      <ul>
-                        <li class="post-date">
-                          <i class="las la-calendar"></i> 7 March, 2022
-                        </li>
-                      </ul>
+                    <div class="dz-media">
+                        <a href="{{ route('blog.details', ['slug' => $l_blog->slug]) }}">
+                            <img src="{{ asset('assets/images/blogs') }}/{{ $l_blog->image }}" alt="" />
+                        </a>
+                    </div>
+                    <div class="dz-info">
+                      <h6 class="title">
+                        <a href="{{ route('blog.details', ['slug' => $l_blog->slug]) }}"
+                          >{{ $l_blog->name }}</a
+                        >
+                      </h6>
+                      <div class="dz-meta">
+                        <ul>
+                          <li class="post-date">
+                            <i class="las la-calendar"></i> {{date('d F, Y', strtotime(   $l_blog->created_at )) }}
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="widget-post clearfix">
-                  <div class="dz-media">
-                    <img src="{{ asset('assets/images/blog/recent-blog/pic2.jpg') }}" alt="" />
-                  </div>
-                  <div class="dz-info">
-                    <h6 class="title">
-                      <a href="blog-details.html"
-                        >How To Make Money From The Agency Phenomenon</a
-                      >
-                    </h6>
-                    <div class="dz-meta">
-                      <ul>
-                        <li class="post-date">
-                          <i class="las la-calendar"></i> 7 March, 2022
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
@@ -142,7 +132,7 @@
     <div class="container">
       <div class="footer-bottom">
         <div class="row align-items-center">
-          <div
+          {{-- <div
             class="col-lg-6 col-md-8 text-md-start text-center mb-md-0 mb-3"
           >
             <span class="copyright-text"
@@ -151,29 +141,43 @@
                 >DexignZone</a
               >. All rights reserved.</span
             >
-          </div>
-          <div class="col-lg-6 col-md-4 text-md-end text-center">
-            <div class="dz-social-icon float-md-end float-center">
+          </div> --}}
+          <div class="ccol-lg-6 col-md-8 text-md-start text-center mb-md-0 mb-3">
+            <div class="dz-social-icon float-md-start float-center">
               <ul class="justify-content-center">
                 <li>
                   <a
                     class="fab fa-facebook-f"
                     target="_blank"
-                    href="https://www.facebook.com/"
+                    href="{{ $setting->facebook }}"
                   ></a>
                 </li>
                 <li>
                   <a
                     class="fab fa-instagram"
                     target="_blank"
-                    href="https://www.instagram.com/?hl=en"
+                    href="{{ $setting->instagram }}"
                   ></a>
                 </li>
                 <li>
                   <a
                     class="fab fa-twitter"
                     target="_blank"
-                    href="https://twitter.com/?lang=en"
+                    href="{{ $setting->twitter }}"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="fab fa-linkedin"
+                    target="_blank"
+                    href="{{ $setting->linkedIn }}"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="fab fa-youtube"
+                    target="_blank"
+                    href="{{ $setting->youtube }}"
                   ></a>
                 </li>
               </ul>

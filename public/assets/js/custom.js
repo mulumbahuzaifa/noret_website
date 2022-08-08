@@ -928,6 +928,16 @@ jQuery(document).ready(function () {
                 .hide();
         });
     });
+    $("ul.isotope-menu li").on("click", function () {
+        $("ul.isotope-menu li").removeClass("active");
+        $(this).addClass("active");
+        var selector = $(this).attr("data-filter");
+        $(".project-items").isotope({
+            filter: selector,
+            animationOptions: { duration: 750, easing: "linear", queue: false },
+        });
+        return false;
+    });
 
     jQuery(".navicon").on("click", function () {
         $(this).toggleClass("open");

@@ -1,6 +1,17 @@
 <?php
 
 use App\Http\Livewire\AboutComponent;
+use App\Http\Livewire\AdminAddBlogComponent;
+use App\Http\Livewire\AdminAddCategoryComponent;
+use App\Http\Livewire\AdminAddServicesComponent;
+use App\Http\Livewire\AdminBlogComponent;
+use App\Http\Livewire\AdminCategoryComponent;
+use App\Http\Livewire\AdminContactComponent;
+use App\Http\Livewire\AdminEditBlogComponent;
+use App\Http\Livewire\AdminEditCategoryComponent;
+use App\Http\Livewire\AdminEditServicesComponent;
+use App\Http\Livewire\AdminServicesComponent;
+use App\Http\Livewire\AdminSettingComponent;
 use App\Http\Livewire\BlogDetailsComponent;
 use App\Http\Livewire\BlogsComponent;
 use App\Http\Livewire\BookingComponent;
@@ -58,13 +69,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified'])
 
 //For Admin
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified' , 'authadmin'])->group(function(){
-    // Route::get('/admin/service/edit/{service_slug}', AdminEditServicesComponent::class)->name('admin.editservice');
-    // Route::get('/admin/services/add', AdminAddServicesComponent::class)->name('admin.addservice');
-    // Route::get('/admin/services', AdminServicesComponent::class)->name('admin.services');
+    Route::get('/admin/service/edit/{service_slug}', AdminEditServicesComponent::class)->name('admin.editservice');
+    Route::get('/admin/services/add', AdminAddServicesComponent::class)->name('admin.addservice');
+    Route::get('/admin/services', AdminServicesComponent::class)->name('admin.services');
 
-    // Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
-    // Route::get('/admin/categories/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
-    // Route::get('/admin/categories/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/categories/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/categories/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
 
 
     // Route::get('/admin/branches', AdminBranchesComponent::class)->name('admin.branches');
@@ -75,19 +86,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified' ,
     // Route::get('/admin/staffs/add', AdminAddStaffComponent::class)->name('admin.addstaff');
 
     // Route::get('/admin/orders', AdminOrderComponent::class)->name('admin.orders');
-    // Route::get('/admin/contact-us', AdminContactComponent::class)->name('admin.contact');
-    // Route::get('/admin/settings', AdminSettingComponent::class)->name('admin.settings');
+    Route::get('/admin/contact-us', AdminContactComponent::class)->name('admin.contact');
+    Route::get('/admin/settings', AdminSettingComponent::class)->name('admin.settings');
 
-    // Route::get('/admin/blogs', AdminBlogComponent::class)->name('admin.blogs');
-    // Route::get('/admin/blogs/add', AdminAddBlogComponent::class)->name('admin.addblog');
-    // Route::get('/admin/blogs/edit/{blog_slug}', AdminEditBlogComponent::class)->name('admin.editblog');
+    Route::get('/admin/blogs', AdminBlogComponent::class)->name('admin.blogs');
+    Route::get('/admin/blogs/add', AdminAddBlogComponent::class)->name('admin.addblog');
+    Route::get('/admin/blogs/edit/{blog_slug}', AdminEditBlogComponent::class)->name('admin.editblog');
 
-    // Route::get('/admin/project/amenities/{project_slug}', AdminAmenitiesComponent::class)->name('admin.amenities');
-    // Route::get('/project/amenities/add/{project_slug}', AdminAddAmenitiesComponent::class)->name('admin.addamenities');
-    // Route::get('/project/amenities/edit/{project_slug}', AdminEditAmenitiesComponent::class)->name('admin.editamenities');
-
-
-    // Route::get('/admin-project-details-{project_slug}', AdminProjectDetailsComponent::class)->name('admin.details');
-    // Route::get('/project-details-add-{project_slug}', AdminAddProjectDetailsComponent::class)->name('admin.adddetails');
-    // Route::get('/project-details-edit-{project_slug}', AdminEditProjectDetailsComponent::class)->name('admin.editdetails');
 });

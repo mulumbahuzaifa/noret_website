@@ -21,9 +21,10 @@ class ServiceDetailsComponent extends Component
         $sector_id = $sector->id;
         $sector_name = $sector->name;
 
-        $services = Service::where('category_id', $sector_id)->paginate(9);
+        $services = Service::get();
+        $r_services = Service::where('category_id', $sector_id)->paginate(9);
         $sectors = Category::get();
 
-        return view('livewire.service-details-component', ['sector' => $sector, 'services' => $services, 'sectors' => $sectors]);
+        return view('livewire.service-details-component', ['sector' => $sector, 'services' => $services, 'sectors' => $sectors, 'r_services' => $r_services]);
     }
 }

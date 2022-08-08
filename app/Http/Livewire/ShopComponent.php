@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Service;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,6 +13,7 @@ class ShopComponent extends Component
     public function render()
     {
         $services = Service::inRandomOrder()->paginate(9);
-        return view('livewire.shop-component', ['services' => $services]);
+        $sectors = Category::inRandomOrder()->get();
+        return view('livewire.shop-component', ['services' => $services, 'sectors' => $sectors]);
     }
 }

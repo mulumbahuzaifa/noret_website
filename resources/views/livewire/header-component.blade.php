@@ -8,8 +8,12 @@
                     </div>
                     <div class="dz-topbar-right">
                         <ul>
-                            <li><i class="fas fa-phone-alt"></i> Phone line: (123) 456-7891</li>
-                            <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aac3c4ccc5eacfd2cbc7dac6cf84c9c5c7">[email&#160;protected]</a></li>
+                            <li><i class="fas fa-phone-alt"></i> Phone line: <a href="tel:{{ $setting->phone }}" class="text-white">{{ $setting->phone }}</a></li>
+                            <li><i class="fas fa-envelope"></i> <a class="text-white"
+                                href="mail:{{ $setting->email }}"
+                                >{{ $setting->email }}</a
+                              >
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -45,7 +49,7 @@
             <div class="extra-nav">
               <div class="extra-cell">
                 <ul>
-                  <li>
+                  {{-- <li>
                     <a
                       class="search-link"
                       id="quik-search-btn"
@@ -53,7 +57,7 @@
                     >
                       <i class="fas fa-search"></i>
                     </a>
-                  </li>
+                  </li> --}}
                   <li>
                     <a href="javascript:void(0);" class="menu-btn">
                       <span></span>
@@ -66,7 +70,7 @@
             </div>
             <!-- Extra Nav -->
 
-            <div class="dz-quik-search">
+            {{-- <div class="dz-quik-search">
               <form action="#">
                 <input
                   name="search"
@@ -77,7 +81,7 @@
                 />
                 <span id="quik-search-remove"><i class="ti-close"></i></span>
               </form>
-            </div>
+            </div> --}}
 
             <div class="full-sidenav">
               <div class="flsbg">
@@ -99,68 +103,73 @@
                         <li>
                           <i class="la la-phone"></i>
                           <span>Make A Call</span>
-                          <h4 class="title">+1800-001-658</h4>
+                          <h4 class="title"><a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></h4>
                         </li>
                         <li>
                           <i class="la la-clock-o"></i>
                           <span>Email Address</span>
                           <h4 class="title">
                             <a
-                              href="/cdn-cgi/l/email-protection"
-                              class="__cf_email__"
-                              data-cfemail="de89bbbcadb7aabb9eb7b0b8b1f0bdb1b3"
-                              >[email&#160;protected]</a
-                            >
+                            href="mail:{{ $setting->email }}"
+                            >{{ $setting->email }}</a
+                          >
                           </h4>
                         </li>
                         <li>
                           <i class="la la-map"></i>
                           <span>Location</span>
                           <h4 class="title">
-                            Envato Pty Ltd 13/2 Permanent <br />
-                            St Melbourne
+                            {{ $setting->address }}
                           </h4>
                         </li>
                       </ul>
                     </div>
                     <div class="social-menu">
-                      <ul>
-                        <li>
-                          <a
-                            class="fab fa-facebook-f"
-                            href="https://www.facebook.com/"
-                          ></a>
-                        </li>
-                        <li>
-                          <a
-                            class="fab fa-twitter"
-                            href="https://twitter.com/?lang=en"
-                          ></a>
-                        </li>
-                        <li>
-                          <a
-                            class="fab fa-linkedin-in"
-                            href="https://www.linkedin.com/"
-                          ></a>
-                        </li>
-                        <li>
-                          <a
-                            class="fab fa-instagram"
-                            href="https://www.instagram.com/?hl=en"
-                          ></a>
-                        </li>
-                      </ul>
+                        <ul>
+                            <li>
+                              <a
+                                class="fab fa-facebook-f"
+                                target="_blank"
+                                href="{{ $setting->facebook }}"
+                              ></a>
+                            </li>
+                            <li>
+                              <a
+                                class="fab fa-instagram"
+                                target="_blank"
+                                href="{{ $setting->instagram }}"
+                              ></a>
+                            </li>
+                            <li>
+                              <a
+                                class="fab fa-twitter"
+                                target="_blank"
+                                href="{{ $setting->twitter }}"
+                              ></a>
+                            </li>
+                            <li>
+                              <a
+                                class="fab fa-linkedin"
+                                target="_blank"
+                                href="{{ $setting->linkedIn }}"
+                              ></a>
+                            </li>
+                            <li>
+                              <a
+                                class="fab fa-youtube"
+                                target="_blank"
+                                href="{{ $setting->youtube }}"
+                              ></a>
+                            </li>
+                          </ul>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <h4>About Us</h4>
                     <p>
-                      Aliquam erat volutpat. Nunc erat massa, porttitor vel
-                      egestas sit amet, tristique at massa. Donec posuere odio
-                      neque, in ultricies lorem aliquet eu. Donec venenatis
-                      libero a nulla placerat egestas.
+                        NORET Engineering Technologies  Ltd was launched  in 2020 during post Covid-19 pandemic.  Having experience in training various industrial software packages and experimental background, colleagues teamed up to train interested parties e.g students, chemical industry workers; and this marked the genesis of  NORET Engineering Technologies.
                     </p>
-                    <a href="about-us.html" class="btn btn-primary"
+                    <a href="{{ route('about') }}" class="btn btn-primary"
                       >READ MORE</a
                     >
                   </div>
@@ -199,6 +208,11 @@
                 @if (Auth::user()->utype === 'ADM')
                 <li class="sub-menu-down"><a href="javascript:void(0);" ><span>My Account ({{ Auth::user()->name }})</span></a>
                     <ul class="sub-menu">
+                        <li><a href="{{ route('admin.services') }}">Services</a></li>
+                        <li><a href="{{ route('admin.categories') }}">Sectors</a></li>
+                        <li><a href="{{ route('admin.blogs') }}">Blogs</a></li>
+                        <li><a href="{{ route('admin.contact') }}">Contacts</a></li>
+                        <li><a href="{{ route('admin.settings') }}">Settings</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a></li>
                         <form method="POST" id="logout-form" action="{{ route('logout') }}">
                             @csrf
@@ -271,35 +285,46 @@
               </ul>
               <div class="dz-social-icon">
                 <ul>
-                  <li>
-                    <a
-                      class="fab fa-facebook-f"
-                      href="https://www.facebook.com/"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      class="fab fa-twitter"
-                      href="https://twitter.com/?lang=en"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      class="fab fa-linkedin-in"
-                      href="https://www.linkedin.com/"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      class="fab fa-instagram"
-                      href="https://www.instagram.com/?hl=en"
-                    ></a>
-                  </li>
-                </ul>
+                    <li>
+                      <a
+                        class="fab fa-facebook-f"
+                        target="_blank"
+                        href="{{ $setting->facebook }}"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="fab fa-instagram"
+                        target="_blank"
+                        href="{{ $setting->instagram }}"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="fab fa-twitter"
+                        target="_blank"
+                        href="{{ $setting->twitter }}"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="fab fa-linkedin"
+                        target="_blank"
+                        href="{{ $setting->linkedIn }}"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        class="fab fa-youtube"
+                        target="_blank"
+                        href="{{ $setting->youtube }}"
+                      ></a>
+                    </li>
+                  </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     <!-- Main Header End -->
-  </header>
+</header>

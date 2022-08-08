@@ -106,12 +106,15 @@
     <script src="{{ asset('assets/vendor/counter/counterup.min.js') }}"></script>
     <!-- COUNTERUP JS -->
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+     <!-- SWIPER SLIDER -->
+     <script src="{{ asset('assets/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js') }}"></script>
     <!-- OWL-CAROUSEL -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <!-- AOS -->
     <script src="{{ asset('assets/vendor/particles/particles.js') }}"></script>
     <!-- PARTICLES JS  -->
     <script src="{{ asset('assets/vendor/particles/particles.app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
     <!-- PARTICLES JS  -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- Google API For Recaptcha  -->

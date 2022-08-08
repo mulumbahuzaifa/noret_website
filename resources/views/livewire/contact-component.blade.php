@@ -9,7 +9,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item">Pages</li>
+
                         <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                     </ul>
                 </nav>
@@ -44,7 +44,19 @@
                                 </div>
                                 <div class="icon-content">
                                     <h4 class=" dz-tilte text-white">Our Address</h4>
-                                    <p class="font-18">1247/Plot No. 39, 15th Phase, Huab Colony, Kukatpally, Hyderabad</p>
+                                    <p class="font-18">{{ $setting->address }}</p>
+                                </div>
+                            </li>
+                            <li class="icon-bx-wraper text-white left m-b30">
+                                <div class="icon-md">
+                                    <span class="icon-cell">
+                                    <i class="flaticon-call"></i>
+                                </span>
+                                </div>
+                                <div class="icon-content">
+                                    <h4 class=" dz-tilte text-white">Our Contacts</h4>
+                                    <p class="font-18"><a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a><br />
+                                        <a href="tel:{{ $setting->phone2 }}">{{ $setting->phone2 }}</a></p>
                                 </div>
                             </li>
                             <li class="icon-bx-wraper text-white left m-b30">
@@ -55,7 +67,12 @@
                                 </div>
                                 <div class="icon-content">
                                     <h4 class="dz-tilte text-white">Our Email</h4>
-                                    <p class="font-18"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4cdcac2cbe4c3c9c5cdc8">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c1f091e1a050f091f2c0b010d0500420f0301">[email&#160;protected]</a></p>
+                                    <p class="font-18">
+                                        <a
+                                        href="mail:{{ $setting->email }}"
+                                        >{{ $setting->email }}</a
+                                      >
+                                    </p>
                                 </div>
                             </li>
                         </ul>
@@ -67,87 +84,43 @@
                             <h6 class="sub-title text-primary">CONTACT US</h6>
                             <h3 class="title m-b20">Get In Touch With Us</h3>
                         </div>
-                        <form class="dz-form dzForm" method="POST" action="script/contact_smtp.php">
-                            <input type="hidden" class="form-control" name="dzToDo" value="Contact">
-                            <div class="dzFormMsg"></div>
+                        <form class="dz-form" wire:submit.prevent="sendMessage">
                             <div class="input-group">
-                                <input required type="text" class="form-control" name="dzName" placeholder="Full Name">
+                                <input required type="text" class="form-control" name="dzName" placeholder="Full Name"  wire:model="name">
+                                @error('name')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="input-group">
-                                <input required type="text" class="form-control" name="dzEmail" placeholder="Email Adress">
+                                <input required type="email" class="form-control" name="dzEmail" placeholder="Email Adress"  wire:model="email">
+                                @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="input-group">
-                                <input required type="text" class="form-control" name="dzPhoneNumber" placeholder="Phone No.">
+                                <input required type="text" class="form-control" name="dzPhoneNumber" placeholder="Phone No."  wire:model="phone">
+                                @error('phone')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="input-group">
-                                <textarea required name="dzMessage" rows="5" class="form-control">Message</textarea>
+                                <textarea required name="dzMessage" rows="5" class="form-control"  wire:model="message" placeholder="Message" ></textarea>
+                                @error('message')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                             </div>
-                            <div class="input-group">
-                                <div class="g-recaptcha" data-sitekey="6LefsVUUAAAAADBPsLZzsNnETChealv6PYGzv3ZN" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                <input class="form-control d-none" style="display:none;" data-recaptcha="true" required data-error="Please complete the Captcha">
-                            </div>
+
                             <div>
-                                <button name="submit" type="submit" value="submit" class="btn w-100 btn-primary btn-border">CONTACT US</button>
+                                <button name="submit" type="submit" class="btn w-100 btn-primary btn-border">CONTACT US</button>
                             </div>
                         </form>
+                        @if (Session::has('message'))
+                            <div class="alert alert-success m-t20" role="alert">{{ Session::get('message') }}</div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Clients Swiper -->
-    <section class="section-full content-inner-5">
-        <div class="container">
-            <div class="swiper-container clients-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide clients-logo">
-                        <img src="{{ asset('assets/images/logo/logo1.jpg') }}" alt="">
-                    </div>
-                    <div class="swiper-slide clients-logo">
-                        <img src="{{ asset('assets/images/logo/logo2.jpg') }}" alt="">
-                    </div>
-                    <div class="swiper-slide clients-logo">
-                        <img src="{{ asset('assets/images/logo/logo3.jpg') }}" alt="">
-                    </div>
-                    <div class="swiper-slide clients-logos">
-                        <img src="{{ asset('assets/images/logo/logo4.jpg') }}" alt="">
-                    </div>
-                    <div class="swiper-slide clients-logo">
-                        <img src="{{ asset('assets/images/logo/logo5.jpg') }}" alt="">
-                    </div>
-                    <div class="swiper-slide clients-logo">
-                        <img src="{{ asset('assets/images/logo/logo6.jpg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Subscribe -->
-    <section class="section-full dz-subscribe style-1">
-        <div class="container">
-            <div class="subscribe-inner row align-items-center">
-                <div class="col-lg-6 mb-lg-0 mb-4">
-                    <div class="title-head">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <h3 class="title text-white">SIGN UP TO GET LATEST UPDATES</h3>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <form class="dzSubscribe" action="script/mailchamp.php" method="post">
-                        <div class="dzSubscribeMsg"></div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input name="dzEmail" required="required" type="email" class="form-control" placeholder="Email Address...">
-                                <div class="input-group-addon">
-                                    <button name="submit" value="Submit" type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>

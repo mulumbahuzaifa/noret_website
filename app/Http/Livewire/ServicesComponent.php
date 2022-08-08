@@ -14,7 +14,7 @@ class ServicesComponent extends Component
     public function render()
     {
         $sectors = Category::paginate(9);
-        $services = Service::inRandomOrder()->paginate(9);
+        $services = Service::inRandomOrder()->get();
         return view('livewire.services-component', ['services' => $services, 'sectors' => $sectors]);
     }
 }

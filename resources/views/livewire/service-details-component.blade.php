@@ -8,7 +8,7 @@
                 <!-- Breadcrumb Row -->
                 <nav aria-label="breadcrumb" class="breadcrumb-row">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Sector Detailes</li>
                     </ul>
                 </nav>
@@ -59,7 +59,7 @@
                     <div class="dz-content m-b30">
                         <p>{{ $sector->description }}</p>
                     </div>
-                    <div class="row justify-content-center m-b15">
+                    {{-- <div class="row justify-content-center m-b15">
                         <div class="col-md-4 col-sm-6">
                             <div class="icon-bx-wraper left style-8 m-b30">
                                 <div class="icon-bx-sm radius">
@@ -99,39 +99,47 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="container m-t30">
+        <div class="section-head style-1 text-center aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <h6 class="sub-title text-primary m-b20">Our Services</h6>
+        </div>
 
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="swiper-container related-item-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($services as $service)
 
-    <!-- Subscribe -->
-    <section class="section-full dz-subscribe style-1">
-        <div class="container">
-            <div class="subscribe-inner row align-items-center">
-                <div class="col-lg-6 mb-lg-0 mb-4">
-                    <div class="title-head">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <h3 class="title text-white">SIGN UP TO GET LATEST UPDATES</h3>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <form class="dzSubscribe" action="script/mailchamp.php" method="post">
-                        <div class="dzSubscribeMsg"></div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input name="dzEmail" required="required" type="email" class="form-control" placeholder="Email Address...">
-                                <div class="input-group-addon">
-                                    <button name="submit" value="Submit" type="submit" class="btn btn-primary"><i class="fas fa-envelope"></i></button>
+                        <div class="swiper-slide">
+                            <div class="item-box">
+                                <div class="item-img">
+
+                                    <img src="{{ asset('assets/images/services') }}/{{ $service->image }}" style="height: 200px;" alt="{{ $service->name }}">
+                                    <span class="badge bg-success">{{ $service->category->name }}</span>
+
+                                </div>
+                                <div class="item-info text-center">
+                                    <h4 class="item-title"><a href="{{ route('services.details', ['slug' => $service->slug]) }}">{{ $service->name }}</a></h4>
+
+                                    <p>{{ str_limit(strip_tags($service->description),100,'...') }} </p>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                        @endforeach
+
+                    </div>
+                    <div class="swiper-button-next-related"></div>
+                    <div class="swiper-button-prev-related"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
 </div>

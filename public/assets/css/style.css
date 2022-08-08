@@ -15,13 +15,13 @@
 
 */
 
-@import url("./../vendor/animate/animate.min.css");
+@import url("../vendor/animate/animate.min.css");
 @import url("../icons/line-awesome/css/line-awesome.min.css");
 @import url("../icons/font-awesome/css/all.min.css");
 @import url("../icons/flaticon/flaticon.css");
 @import url("../icons/themify/themify-icons.css");
 @import url("../icons/iconfont/material-icons.css");
-@import url(../vendor/rangeslider/rangeslider.css);
+@import url("../vendor/rangeslider/rangeslider.css");
 :root {
     --primary: #ff5317;
     --secondary: #192436;
@@ -1889,6 +1889,11 @@ progress {
 .table-striped > tbody > tr:nth-of-type(odd) > * {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
     color: var(--bs-table-striped-color);
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: rgb(148, 148, 148);
 }
 
 .table-active {
@@ -5001,7 +5006,7 @@ fieldset:disabled .wp-block-button__link {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
@@ -13987,7 +13992,7 @@ section {
     margin-bottom: 30px;
     border-radius: 5px;
     box-shadow: 0px 36px 48px rgba(31, 66, 135, 0.04);
-    background: #fff;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .card-header {
@@ -13995,7 +14000,7 @@ section {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e1e1f0;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px 30px;
 }
 
@@ -14006,7 +14011,7 @@ section {
 
 .card .card-body {
     padding: 20px 30px;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
 }
 
@@ -17342,15 +17347,15 @@ ul.grid-2 li {
 }
 
 .list-check-box li {
-    padding: 20px 10px 20px 70px;
+    padding: 10px 5px 10px 70px;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #fff;
     background: var(--secondary);
-    font-size: 24px;
-    font-family: var(--font-family-title);
+    font-size: 16px;
+    /* font-family: var(--font-family-title); */
     border-radius: var(--border-radius-base);
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     margin-right: 40px;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -17360,8 +17365,8 @@ ul.grid-2 li {
 
 .list-check-box li:after {
     content: "\f058";
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 20px;
+    /* font-weight: 500; */
     position: absolute;
     left: 30px;
     color: #fff;
@@ -17377,14 +17382,14 @@ ul.grid-2 li {
 
 @media only screen and (max-width: 1200px) {
     .list-check-box li {
-        font-size: 20px;
+        font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 575px) {
     .list-check-box li {
         font-size: 18px;
-        padding: 20px 10px 20px 55px;
+        padding: 10px 5px 10px 55px;
     }
     .list-check-box li:after {
         left: 20px;
@@ -21482,6 +21487,22 @@ ul a.rsswidget:hover {
 
 .about-style12 .dz-media img {
     border-radius: var(--border-radius-base);
+    height: calc(100% - 300px);
+    background: -moz-linear-gradient(
+        left,
+        rgba(25, 25, 25, 0.9) 40%,
+        rgba(125, 185, 232, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+        left,
+        rgba(25, 25, 25, 0.9) 40%,
+        rgba(125, 185, 232, 0) 100%
+    );
+    background: linear-gradient(
+        to right,
+        rgba(25, 25, 25, 0.9) 40%,
+        rgba(125, 185, 232, 0) 100%
+    );
 }
 
 .about-style12 .dz-media:after {
@@ -21501,14 +21522,14 @@ ul a.rsswidget:hover {
     position: absolute;
     bottom: 30px;
     left: -75px;
-    background: #fff;
+    background: transparent;
     border: 1px solid #d9d9d9;
     border-radius: var(--border-radius-base);
     z-index: 1;
 }
 
 .about-style12 .dz-media ul li {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -22551,21 +22572,21 @@ ul a.rsswidget:hover {
 
 .section-head h3,
 .section-head .h3 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     line-height: 1.2;
 }
 
 @media only screen and (max-width: 1200px) {
     .section-head h3,
     .section-head .h3 {
-        font-size: 2.3rem;
+        font-size: 1.9rem;
     }
 }
 
 @media only screen and (max-width: 991px) {
     .section-head h3,
     .section-head .h3 {
-        font-size: 1.75rem;
+        font-size: 1.1rem;
     }
 }
 
@@ -25455,6 +25476,18 @@ ul a.rsswidget:hover {
 .content-box .dz-info {
     padding: 30px;
     position: relative;
+}
+
+.content-box .dz-info .title {
+    clear: both;
+    /* display: inline-block; */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 320px;
+    text-overflow: ellipsis;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .content-box .dz-info:after {
@@ -43018,6 +43051,42 @@ footer .widget_services ul li {
         line-height: 35px;
         width: 35px;
     }
+}
+
+.isotope-menu {
+    /* text-align: center; */
+    list-style: none;
+    margin-bottom: 40px;
+}
+.isotope-menu li {
+    font-weight: 600;
+    font-size: 16px;
+    color: #e4e4e4;
+    cursor: pointer;
+    /* background: #191a1c; */
+    /* box-shadow: inset 0 0 10px rgba(6, 6, 6, 0.15); */
+    /* border-radius: 10px; */
+    padding: 10px 30px;
+    margin: 0 10px;
+    transition: all 0.5s ease-out 0s;
+}
+
+.isotope-menu li.active {
+    position: relative;
+    color: #fff;
+    background-color: #0d0d0f;
+}
+.isotope-menu li.active:before {
+    position: absolute;
+    content: "";
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -0.5px;
+    background-color: #00aeef;
+    z-index: -1;
+    transform: skew(1deg, 1deg);
+    border-radius: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */
