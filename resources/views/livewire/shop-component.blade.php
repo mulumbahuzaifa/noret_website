@@ -45,10 +45,10 @@
                                         <div class=" item-box m-b30" style="height: 400px;">
                                             <div class="item-img">
                                                 <img src="{{ asset('assets/images/services') }}/{{ $service->image }}" style="height: 200px;" alt="{{ $service->name }}">
-                                                <span class="badge bg-danger">{{ $service->category->name }}</span>
+                                                <span class="badge bg-danger">{{ str_limit(strip_tags($service->category->name ),20,'...') }}</span>
                                             </div>
                                             <div class="position-relative item-info text-center" style="height: 200px;">
-                                                <h4 class="item-title"><a href="{{ route('services.details', ['slug' => $service->slug]) }}">{{ $service->name }}</a></h4>
+                                                <h4 class="item-title"><a href="{{ route('services.details', ['slug' => $service->slug]) }}">{{ str_limit(strip_tags($service->name ),25,'...') }}</a></h4>
                                                 <p>{{ str_limit(strip_tags($service->description),100,'...') }} </p>
                                                 <div class="position-absolute top-100 start-50 translate-middle dz-bottom">
                                                     <a href="{{ route('services.details', ['slug' => $service->slug]) }}" class="btn-link">READ MORE<i class="fas fa-arrow-right"></i></a>

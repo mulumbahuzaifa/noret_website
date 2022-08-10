@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use App\Models\Service;
 use App\Models\Contact;
+use App\Models\HomeSlider;
 use App\Models\Setting;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -49,7 +50,8 @@ class HomeComponent extends Component
     {
         $services = Service::inRandomOrder()->paginate(9);
         $sectors = Category::get();
+        $sliders = HomeSlider::get();
         $setting = Setting::find(1);
-        return view('livewire.home-component',['services' => $services, 'sectors' => $sectors, 'setting' => $setting]);
+        return view('livewire.home-component',['services' => $services, 'sectors' => $sectors, 'setting' => $setting, 'sliders' => $sliders]);
     }
 }

@@ -2077,7 +2077,7 @@ progress {
 .wp-block-archives-dropdown select {
     display: block;
     width: 100%;
-    padding: 0.375rem 0.75rem;
+    padding: 0.2rem 0.5rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
@@ -2086,7 +2086,7 @@ progress {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     appearance: none;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -19815,6 +19815,7 @@ ul a.rsswidget:hover {
     position: relative;
     overflow: hidden;
     height: 100%;
+    margin-top: 100px;
 }
 
 .main-slider1 .swiper-button,
@@ -26075,6 +26076,7 @@ ul a.rsswidget:hover {
 
 .about-wrapper-2 .swiper-slide img {
     width: 100%;
+    height: 100%;
 }
 
 .about-wrapper-2 .swiper-button {
@@ -27987,8 +27989,8 @@ pre {
 .comments-area .comment-list > .comment .comment-body .comment-author .avatar {
     position: absolute;
     left: 0;
-    height: 95px;
-    width: 95px;
+    height: 70px;
+    width: 70px;
     border-radius: var(--border-radius-sm);
 }
 
@@ -29576,11 +29578,11 @@ pre {
 }
 
 .login-wrapper .login-form .form-group {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .login-wrapper .login-form label {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 575px) {
@@ -31122,7 +31124,7 @@ pre {
     margin-left: 0;
     margin-right: 0;
     width: 179px;
-    height: 100px;
+    height: 80px;
     position: relative;
     z-index: 9;
 }
@@ -31130,7 +31132,7 @@ pre {
 @media only screen and (max-width: 991px) {
     .logo-header {
         width: 180px;
-        height: 80px;
+        height: 70px;
     }
 }
 
@@ -31146,7 +31148,7 @@ pre {
 }
 
 .logo-header img {
-    height: 100px;
+    height: 80px;
     max-width: 179px;
     object-fit: contain;
     -webkit-transition: all 0.8s;
@@ -31157,7 +31159,7 @@ pre {
 @media only screen and (max-width: 991px) {
     .logo-header img {
         max-width: 140px;
-        height: 80px;
+        height: 70px;
     }
 }
 
@@ -31168,14 +31170,14 @@ pre {
 }
 
 .logo-header span {
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 20px;
 }
 
 .top-bar {
     background-color: #fff;
     color: #212529;
-    padding: 4px 0;
+    padding: 2px 0;
     position: relative;
     border-bottom: 1px solid #d7d7d7;
 }
@@ -31224,7 +31226,7 @@ pre {
 .top-bar .dz-topbar-left ul li,
 .top-bar .dz-topbar-right ul li {
     display: inline-block;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .top-bar .dz-topbar-center ul i,
@@ -31351,13 +31353,13 @@ pre {
     align-items: center;
     position: relative;
     z-index: 9;
-    height: 100px;
+    height: 80px;
     padding-left: 30px;
 }
 
 @media only screen and (max-width: 991px) {
     .site-header .extra-nav {
-        height: 80px;
+        height: 60px;
     }
 }
 
@@ -31632,8 +31634,8 @@ pre {
 
 .header-nav .nav > li > a {
     color: #071c35;
-    font-size: 18px;
-    padding: 42px 15px;
+    font-size: 17px;
+    padding: 35px 15px;
     font-family: var(--font-family-title);
     cursor: pointer;
     font-weight: 500;
@@ -31821,7 +31823,7 @@ pre {
     color: inherit;
     display: block;
     float: right;
-    font-size: 18px;
+    font-size: 15px;
     opacity: 1;
     margin-top: 0px;
 }
@@ -32504,7 +32506,7 @@ pre {
 }
 
 .site-header.style-1 .top-bar p {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 0;
 }
 
@@ -32512,7 +32514,7 @@ pre {
 .site-header.style-1 .top-bar .dz-topbar-right p,
 .site-header.style-1 .top-bar .dz-topbar-left li,
 .site-header.style-1 .top-bar .dz-topbar-left p {
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .site-header.style-1 .top-bar .dz-topbar-right li i,
@@ -32977,8 +32979,8 @@ pre {
 }
 
 .site-header.style-1 .menu-btn {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     background: var(--primary);
     display: inline-block;
     position: relative;
@@ -32988,7 +32990,7 @@ pre {
 
 .site-header.style-1 .menu-btn span {
     background: #fff;
-    left: 18px;
+    left: 8px;
     display: block;
     position: absolute;
     height: 2px;
@@ -33003,36 +33005,36 @@ pre {
 }
 
 .site-header.style-1 .menu-btn span:nth-child(1) {
-    top: 22px;
-    width: 35px;
-}
-
-.site-header.style-1 .menu-btn span:nth-child(2) {
-    top: 32.5px;
+    top: 16px;
     width: 25px;
 }
 
+.site-header.style-1 .menu-btn span:nth-child(2) {
+    top: 26px;
+    width: 15px;
+}
+
 .site-header.style-1 .menu-btn span:nth-child(3) {
-    top: 44px;
-    width: 35px;
+    top: 36px;
+    width: 25px;
 }
 
 @media only screen and (max-width: 1400px) {
     .site-header.style-1 .menu-btn {
-        height: 60px;
-        width: 60px;
+        height: 40px;
+        width: 40px;
     }
     .site-header.style-1 .menu-btn span {
-        left: 12px;
+        left: 8px;
     }
     .site-header.style-1 .menu-btn span:nth-child(1) {
-        top: 18px;
+        top: 10px;
     }
     .site-header.style-1 .menu-btn span:nth-child(2) {
-        top: 28.5px;
+        top: 20.5px;
     }
     .site-header.style-1 .menu-btn span:nth-child(3) {
-        top: 40px;
+        top: 32px;
     }
 }
 
@@ -33049,7 +33051,8 @@ pre {
 }
 
 .site-header.style-1 .menu-btn.open span:nth-child(1) {
-    top: 33px;
+    top: 18px;
+    width: 25px;
     transform: rotate(45deg);
 }
 
@@ -33059,8 +33062,8 @@ pre {
 }
 
 .site-header.style-1 .menu-btn.open span:nth-child(3) {
-    top: 33px;
-    width: 35px;
+    top: 18px;
+    width: 25px;
     transform: rotate(-45deg);
 }
 

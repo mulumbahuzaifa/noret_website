@@ -173,7 +173,7 @@
             </div>
           </div>
         </div>
-      </section>
+    </section>
     <!-- About -->
     <section class="content-inner-3">
       <div class="container">
@@ -281,7 +281,7 @@
                 data-aos-delay="200"
               >
                 <div class="dz-media">
-                  <img src="{{ asset('assets/images/about/about30.jpg') }}" alt="" />
+                  <img src="{{ asset('assets/images/about/about30.png') }}" alt="" />
                   <div class="info">
                     <h2 class="text-white">Contact Us</h2>
                     <p>Use this form to send us a message, We will get back to you</p>

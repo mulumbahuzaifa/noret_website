@@ -2,130 +2,52 @@
     <div class="main-slider3">
       <div class="swiper-container main-swiper3 banner-inner">
         <div class="swiper-wrapper">
-          <div
-            class="swiper-slide overlay-black-middle"
-            style="
-              background-image: url({{ asset('assets/images/main-slider/slider3.jpg') }});
-              background-size: cover;
-            "
-          >
-            <div class="banner-content container">
-              <div class="row">
-                <div class="col-lg-9">
-                  <h1 class="title" data-swiper-parallax="-500">
-                    Market-leading Producer of Sheet Metal Alloy
-                  </h1>
-                  <p data-swiper-parallax="-1000">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <div data-swiper-parallax="-1500">
-                    <a
-                      href="{{ route('about') }}"
-                      class="btn btn-primary btn-border btn-border-white m-r10 m-b10"
-                      >ABOUT US</a
-                    >
-                  </div>
+            @foreach ($sliders as $slider)
+                <div
+                class="swiper-slide overlay-black-middle"
+                style="
+                background-image: url({{ asset('assets/images/main-slider') }}/{{ $slider->image }});
+                background-size: cover;
+                "
+                >
+                <div class="banner-content container">
+                <div class="row">
+                    <div class="col-lg-9">
+                    <h1 class="title" data-swiper-parallax="-500">
+                        {{ $slider->title }}
+                    </h1>
+                    <p data-swiper-parallax="-1000">
+                        {{ $slider->subtitle }}
+                    </p>
+                    <div data-swiper-parallax="-1500">
+                        <a
+                        href="{{ route('about') }}"
+                        class="btn btn-primary btn-border btn-border-white m-r10 m-b10"
+                        >ABOUT US</a
+                        >
+                    </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="swiper-slide overlay-black-middle"
-            style="
-              background-image: url({{ asset('assets/images/main-slider/slider3.jpg') }});
-              background-size: cover;
-            "
-          >
-            <div class="banner-content container">
-              <div class="row">
-                <div class="col-lg-9">
-                  <h1 class="title" data-swiper-parallax="-500">
-                    The Industry That Wins Customers
-                  </h1>
-                  <p data-swiper-parallax="-1000">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <div data-swiper-parallax="-1500">
-                    <a
-                      href="{{ route('about') }}"
-                      class="btn btn-primary btn-border btn-border-white m-r10 m-b10"
-                      >ABOUT US</a
-                    >
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div
-            class="swiper-slide overlay-black-middle"
-            style="
-              background-image: url({{ asset('assets/images/main-slider/slider5.jpg') }});
-              background-size: cover;
-            "
-          >
-            <div class="banner-content container">
-              <div class="row">
-                <div class="col-lg-9">
-                  <h1 class="title" data-swiper-parallax="-500">
-                    How To Make More Industry By Doing Less
-                  </h1>
-                  <p data-swiper-parallax="-1000">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <div data-swiper-parallax="-1500">
-                    <a
-                      href="{{ route('about') }}"
-                      class="btn btn-primary btn-border btn-border-white m-r10 m-b10"
-                      >ABOUT US</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            @endforeach
         </div>
       </div>
       <div class="swiper-container slider-thumbs-wraper main-swiper-thumb3">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="slider-thumbs">
-              <div class="dz-media">
-                <img src="{{ asset('assets/images/main-slider/slider3.jpg') }}" alt="" />
-              </div>
-              <div class="dz-info">
-                <h4 class="title">Market Leading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="slider-thumbs">
-              <div class="dz-media">
-                <img src="{{ asset('assets/images/main-slider/slider4.jpg') }}" alt="" />
-              </div>
-              <div class="dz-info">
-                <h4 class="title">The Industry That Wins</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="slider-thumbs">
-              <div class="dz-media">
-                <img src="{{ asset('assets/images/main-slider/slider5.jpg') }}" alt="" />
-              </div>
-              <div class="dz-info">
-                <h4 class="title">How To Make More</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-              </div>
-            </div>
-          </div>
+            @foreach ($sliders as $slider)
+                <div class="swiper-slide">
+                    <div class="slider-thumbs">
+                    <div class="dz-media">
+                        <img src="{{ asset('assets/images/main-slider') }}/{{ $slider->image }}" alt="{{ $slider->title }}" />
+                    </div>
+                    <div class="dz-info">
+                        <h4 class="title">{{ str_limit(strip_tags($slider->title),15,'...') }}</h4>
+                        <p>{{ str_limit(strip_tags($slider->subtitle),50,'...') }}</p>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
       </div>
     </div>
@@ -137,7 +59,7 @@
         background-size: cover;
         background-position: top;
       "
-    >
+        >
       <div class="container">
         <div class="row">
           <div
@@ -174,6 +96,10 @@
         </div>
 
         <div class="swiper-container content-slider">
+            <div class="section-head style-1 text-center aos-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h6 class="sub-title text-primary">Some Of Our Service Solution</h6>
+            </div>
+      
           <div class="swiper-wrapper">
             @foreach ($services  as $service)
             <div
@@ -318,7 +244,7 @@
       </div>
     </section>
 
-    <section class="content-inner bg-gray bg-particles" id="particles-js">
+    {{-- <section class="content-inner bg-gray bg-particles" id="particles-js">
       <div class="container">
         <div class="row about-style3 align-items-center">
           <div
@@ -367,7 +293,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
     {{-- <section
       class="content-inner-1 bg-white aos-item"
@@ -521,7 +447,7 @@
               data-aos-delay="200"
             >
               <div class="dz-media">
-                <img src="{{ asset('assets/images/about/about30.jpg') }}" alt="" />
+                <img src="{{ asset('assets/images/about/about30.png') }}" alt="" />
                 <div class="info">
                   <h2 class="text-white">Contact Us</h2>
                   <p>Use this form to send us a message, We will get back to you</p>

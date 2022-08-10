@@ -7,23 +7,11 @@
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <meta name="robots" content="" />
-    <meta
-      name="description"
-      content="Indiro - Factory & Industrial HTML Template"
-    />
-    <meta
-      property="og:title"
-      content="Indiro - Factory & Industrial HTML Template"
-    />
-    <meta
-      property="og:description"
-      content="Industry – Factory & Industrial HTML Template is particularly designed for factory, industry, architecture, plants, mechanical, power and energy Business Template."
-    />
-    <meta
-      property="og:image"
-      content="https://indiro.dexignzone.com/xhtml/social-image.png"
-    />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="Indiro - Factory & Industrial HTML Template" />
+    <meta property="og:title" content="Indiro - Factory & Industrial HTML Template" />
+    <meta property="og:description" content="Industry – Factory & Industrial HTML Template is particularly designed for factory, industry, architecture, plants, mechanical, power and energy Business Template." />
+    <meta property="og:image" content="https://indiro.dexignzone.com/xhtml/social-image.png" />
+    <meta name="format-detection" content="telephone=no">
 
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,10 +28,10 @@
       href="{{ asset('assets/vendor/lightgallery/css/lightgallery.min.css') }}"
       rel="stylesheet"
     />
-    <link
+    {{-- <link
       href="{{ asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}"
       rel="stylesheet"
-    />
+    /> --}}
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/animate/animate.css') }}" rel="stylesheet" />
 
@@ -97,7 +85,7 @@
     <!-- JQUERY.MIN JS -->
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- BOOTSTRAP.MIN JS -->
-    <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script> --}}
     <!-- MAGNIFIC POPUP JS -->
     <script src="{{ asset('assets/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script>
     <!-- LIGHTGALLERY -->

@@ -1,4 +1,4 @@
-<header class="site-header mo-left header-transparent style-1">
+<header class="site-header mo-left header header-transparent style-1">
            <!-- Top Bar -->
            <div class="top-bar text-white">
             <div class="container">
@@ -27,7 +27,7 @@
             <!-- Website Logo -->
             <div class="logo-header mostion ">
                 <a href="/"
-                  ><img src="{{ asset('assets/images/logo-white.png') }}" alt=""
+                  ><img src="{{ asset('assets/images/noret.png') }}" alt=""
                 /></a>
               </div>
 
@@ -182,7 +182,7 @@
               id="navbarNavDropdown"
              >
               <div class="logo-header logo-dark">
-                <a href="/"><img src="{{ asset('assets/images/logo.png') }}" alt="" /></a>
+                <a href="/"><img src="{{ asset('assets/images/noret.png') }}" alt="" /></a>
               </div>
               <ul class="nav navbar-nav navbar navbar-left">
                 <li class="nav-item">

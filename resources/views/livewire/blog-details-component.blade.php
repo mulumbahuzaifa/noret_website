@@ -39,65 +39,41 @@
                             <ul class="wp-block-gallery columns-3">
                                 <li class="blocks-gallery-item"><img alt="" src="{{ asset('assets/images/blogs') }}/{{ $blog->image }}"></li>
                             </ul>
-                    
-                      
-                     
+
+
+
                         </div>
-  
+
                     </div>
 
-              
+
 
                     <!-- Comments -->
                     <div class="clear" id="comment-list">
                         <div class="comments-area" id="comments">
                             <div class="widget-title">
-                                <h4 class="title">8 Comments</h4>
+                                <h4 class="title">{{ $reviews->count() }} Comments</h4>
                                 <div class="dz-separator style-1 bg-primary mb-0"></div>
                             </div>
                             <div class="clearfix">
                                 <!-- comment list END -->
                                 <ol class="comment-list">
-                                    <li class="comment">
-                                        <div class="comment-body">
-                                            <div class="comment-author vcard">
-                                                <img class="avatar photo" src="images/testimonials/pic1.jpg" alt="">
-                                                <cite class="fn">Celesto Anderson</cite>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <div class="reply">
-                                                <a href="javascript:void(0);" class="comment-reply-link"><i class="fa fa-reply"></i>Reply</a>
-                                            </div>
-                                        </div>
-                                        <ol class="children">
-                                            <li class="comment odd parent">
-                                                <div class="comment-body">
-                                                    <div class="comment-author vcard">
-                                                        <img class="avatar photo" src="images/testimonials/pic2.jpg" alt="">
-                                                        <cite class="fn">Jake Johnson</cite>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                    <div class="reply">
-                                                        <a href="javascript:void(0);" class="comment-reply-link"><i class="fa fa-reply"></i>Reply</a>
-                                                    </div>
+                                    @foreach ($reviews as $review)
+                                        <li class="comment">
+                                            <div class="comment-body">
+                                                <div class="comment-author vcard">
+                                                    <img class="avatar photo" src="{{ asset('assets/images/profile.png') }}" alt="">
                                                 </div>
-                                                <!-- list END -->
-                                            </li>
-                                        </ol>
-                                        <!-- list END -->
-                                    </li>
-                                    <li class="comment">
-                                        <div class="comment-body">
-                                            <div class="comment-author vcard">
-                                                <img class="avatar photo" src="images/testimonials/pic3.jpg" alt="">
-                                                <cite class="fn">John Doe</cite>
+                                                <div class="comment-info">
+                                                    <div class="title">
+                                                        <cite class="fn">{{ $review->name }}</cite>
+
+                                                    </div>
+                                                    <p>{{ $review->comment }}</p>
+                                                </div>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <div class="reply">
-                                                <a href="javascript:void(0);" class="comment-reply-link"><i class="fa fa-reply"></i>Reply</a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endforeach
                                 </ol>
                                 <!-- comment list END -->
                                 <!-- Form -->
@@ -108,25 +84,34 @@
                                         </h4>
                                         <div class="dz-separator style-1 bg-primary mb-0"></div>
                                     </div>
-                                    <form class="comment-form" id="commentform" method="post">
+                                    @if (Session::has('message'))
+                                    <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                                    @endif
+                                    <form class="comment-form" wire:submit.prevent="addReview">
                                         <p class="comment-form-author">
-                                            <label for="author">Name <span class="required">*</span></label>
-                                            <input type="text" name="Author" placeholder="Author" id="author">
+                                            <label>Full Name <span class="required">*</span></label>
+                                            <input type="text" name="FullName"  placeholder="Full Name" wire:model="name">
+                                            @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </p>
                                         <p class="comment-form-email">
-                                            <label for="email">Email <span class="required">*</span></label>
-                                            <input type="text" placeholder="Email" name="email" id="email">
+                                            <label>Email <span class="required">*</span></label>
+                                            <input type="email" placeholder="Email"  name="email" wire:model="email" >
+                                            @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </p>
-                                        <p class="comment-form-url">
-                                            <label for="url">Website</label>
-                                            <input type="text" value="url" placeholder="Website" name="url" id="url">
-                                        </p>
+
                                         <p class="comment-form-comment">
-                                            <label for="comment">Comment</label>
-                                            <textarea rows="8" name="comment" placeholder="Comment" id="comment"></textarea>
+                                            <label>Comment <span class="required">*</span></label>
+                                            <textarea rows="8" name="comment" placeholder="comment" wire:model="comment" ></textarea>
+                                            @error('comment')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </p>
                                         <p class="form-submit">
-                                            <button type="submit" class="btn btn-border shadow-primary btn-primary" id="submit">SUBMIT</button>
+                                            <button type="submit" class="btn btn-border shadow-primary btn-primary" >SUBMIT</button>
                                         </p>
                                     </form>
                                 </div>
@@ -154,7 +139,7 @@
                             </div>
                         </div>
 
-                 
+
 
                         <div class="widget style-1 widget_gallery gallery-grid-3">
                             <div class="widget-title">
@@ -229,7 +214,7 @@
                             </div>
                         </div>
 
-              
+
 
                     </aside>
                 </div>

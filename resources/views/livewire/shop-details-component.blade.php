@@ -93,7 +93,7 @@
                                 <p class="m-b10">{{ $service->description }}</p>
                             </div>
 
-                            <div id="developement-1" class="tab-pane">
+                            <div id="developement-1" class="tab-pane" wire:ignore.self>
                                 <div id="comments">
                                     <div class="comments-area style-1">
                                         <div class="widget-title">
@@ -102,40 +102,22 @@
                                         <div class="clearfix">
                                             <!-- comment list END -->
                                             <ol class="comment-list">
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard">
-                                                            <img class="avatar photo" src="{{ asset('assets/images/testimonials/large/pic1.jpg') }}" alt="">
-                                                        </div>
-                                                        <div class="comment-info">
-                                                            <div class="title">
-                                                                <cite class="fn">Sarah Albert</cite>
-                                                                <div class="reply">
-                                                                    <a href="javascript:void(0);" class="comment-reply-link">Reply</a>
-                                                                </div>
+                                                @foreach ($reviews as $review)
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="comment-author vcard">
+                                                                <img class="avatar photo" src="{{ asset('assets/images/profile.png') }}" alt="">
                                                             </div>
-                                                            <p>Vivamus imperdiet erat id leo malesuada bibendum tristique in ipsum. Nulla vel elit ac ipsum maximus dapibus. Aenean aliquet euismod eros, quis dictum mauris congue a. Integer porttitor
-                                                                et eros non hendrerit.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="comment">
-                                                    <div class="comment-body">
-                                                        <div class="comment-author vcard">
-                                                            <img class="avatar photo" src="{{ asset('assets/images/testimonials/large/pic2.jpg') }}" alt="">
-                                                        </div>
-                                                        <div class="comment-info">
-                                                            <div class="title">
-                                                                <cite class="fn">Kevin Martin</cite>
-                                                                <div class="reply">
-                                                                    <a href="javascript:void(0);" class="comment-reply-link">Reply</a>
+                                                            <div class="comment-info">
+                                                                <div class="title">
+                                                                    <cite class="fn">{{ $review->name }}</cite>
+
                                                                 </div>
+                                                                <p>{{ $review->comment }}</p>
                                                             </div>
-                                                            <p>Vivamus imperdiet erat id leo malesuada bibendum tristique in ipsum. Nulla vel elit ac ipsum maximus dapibus. Aenean aliquet euismod eros, quis dictum mauris congue a. Integer porttitor
-                                                                et eros non hendrerit.</p>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                @endforeach
                                             </ol>
                                             <!-- comment list END -->
                                         </div>
@@ -144,22 +126,36 @@
                                         </div>
                                         <div class="clearfix">
                                             <!-- Form -->
-                                            <div class="comment-respond style-1" id="respond">
-                                                <form class="comment-form" id="commentform" method="post">
+                                            @if (Session::has('message'))
+                                            <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                                            @endif
+                                            <div class="comment-respond style-1">
+                                                <form class="comment-form"  wire:submit.prevent="addReview">
                                                     <p class="comment-form-author">
-                                                        <label>First Name <span class="required">*</span></label>
-                                                        <input type="text" name="FirstName" placeholder="First Name" id="FirstName">
+                                                        <label>Full Name <span class="required">*</span></label>
+                                                        <input type="text" name="FullName"  placeholder="Full Name" wire:model="name">
+                                                        @error('name')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </p>
                                                     <p class="comment-form-email">
                                                         <label>Email <span class="required">*</span></label>
-                                                        <input type="text" placeholder="Email" name="email" id="email">
+                                                        <input type="email" placeholder="Email"  name="email" wire:model="email" >
+                                                        @error('email')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </p>
+
                                                     <p class="comment-form-comment">
-                                                        <label>Message</label>
-                                                        <textarea rows="8" name="Message" placeholder="Message" id="Message"></textarea>
+                                                        <label>Comment <span class="required">*</span></label>
+                                                        <textarea rows="8" name="comment" placeholder="comment" wire:model="comment" ></textarea>
+                                                        @error('comment')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </p>
+
                                                     <p class="form-submit">
-                                                        <button type="submit" class="btn effect btn-primary" id="submit">Submit A Comment<i class="fas fa-long-arrow-alt-right m-l15"></i></button>
+                                                        <button type="submit" class="btn effect btn-primary">Submit A Comment<i class="fas fa-long-arrow-alt-right m-l15"></i></button>
                                                     </p>
                                                 </form>
                                             </div>
@@ -172,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" wire:ignore>
                 <div class="col-xl-12">
                     <div class="swiper-container related-item-swiper">
                         <h3>Related Services</h3>

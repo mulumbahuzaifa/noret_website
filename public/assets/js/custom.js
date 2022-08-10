@@ -896,7 +896,7 @@ var Indiro = (function () {
             handleSmartWizard();
             handleCopyClipboard();
             splitImageAnimation();
-            handleSupport();
+            // handleSupport();
         },
 
         load: function () {
