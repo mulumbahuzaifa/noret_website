@@ -11,7 +11,7 @@
             <div class="widget widget_about">
               <div class="footer-logo logo-white">
                 <a href="/"
-                  ><img src="{{ asset('assets/images/logo-white.png') }}" alt=""
+                  ><img src="{{ asset('assets/images/noret.png') }}" alt=""
                 /></a>
               </div>
               <div class="widget widget_getintuch">

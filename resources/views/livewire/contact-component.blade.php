@@ -20,13 +20,14 @@
     <!-- Banner End -->
 
     <section class="content-inner-2 pt-0">
+        {{-- <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Kamuli%20Road,%20Kireka%20Kamuli,%20Kampala&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123movies</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div> --}}
         <div class="map-iframe">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624477!2d75.65046970649679!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C+Rajasthan!5e0!3m2!1sen!2sin!4v1500819483219"
+            <iframe src="https://maps.google.com/maps?q=Kamuli%20Road,%20Kireka%20Kamuli,%20Kampala&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 style="border:0; width:100%; min-height:100%; margin-bottom: -8px;" allowfullscreen></iframe>
         </div>
     </section>
 
-    <section class="contact-wraper1" style="background-image: url({{ asset('assets/images/background/bg18.jpg') }});">
+    <section class="contact-wraper1" style="background-image: url({{ asset('assets/images/background/bg3.png') }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">

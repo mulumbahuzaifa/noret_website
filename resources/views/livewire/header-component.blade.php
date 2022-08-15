@@ -1,10 +1,10 @@
-<header class="site-header mo-left header header-transparent style-1">
+<header class="site-header mo-left  header-transparent style-1">
            <!-- Top Bar -->
            <div class="top-bar text-white">
             <div class="container">
                 <div class="dz-topbar-inner d-flex justify-content-between align-items-center">
                     <div class="dz-topbar-left">
-                        <p>Mon 8am - 7pm - Sunday 10am - 4pm</p>
+                        <p>Mon - Fri (8am - 7pm) & Sat (10am - 4pm)</p>
                     </div>
                     <div class="dz-topbar-right">
                         <ul>
@@ -25,11 +25,11 @@
         <div class="main-bar clearfix">
           <div class="container-fluid clearfix">
             <!-- Website Logo -->
-            <div class="logo-header mostion ">
+            <div class="logo-header mostion">
                 <a href="/"
                   ><img src="{{ asset('assets/images/noret.png') }}" alt=""
                 /></a>
-              </div>
+            </div>
 
             <!-- Nav Toggle Button -->
             <button
@@ -185,22 +185,25 @@
                 <a href="/"><img src="{{ asset('assets/images/noret.png') }}" alt="" /></a>
               </div>
               <ul class="nav navbar-nav navbar navbar-left">
-                <li class="nav-item">
+                <li class="nav-link">
                   <a href="/"><span>Home</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-link">
                   <a href="{{ route('about') }}"><span>About us</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-link">
                     <a href="{{ route('services') }}"><span>Services</span></a>
                   </li>
-                <li class="nav-item">
+                <li class="nav-link">
                   <a href="{{ route('sectors') }}"><span>Sectors</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-link">
                   <a href="{{ route('blogs') }}"><span>Blog</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-link">
+                  <a href="{{ route('careers') }}"><span>Careers</span></a>
+                </li>
+                <li class="nav-link">
                   <a href="{{ route('contact') }}"><span>Contact us</span></a>
                 </li>
                 @if (Route::has('login'))
@@ -212,6 +215,8 @@
                         <li><a href="{{ route('admin.categories') }}">Sectors</a></li>
                         <li><a href="{{ route('admin.blogs') }}">Blogs</a></li>
                         <li><a href="{{ route('admin.contact') }}">Contacts</a></li>
+                        <li><a href="{{ route('admin.careers') }}">Careers</a></li>
+                        <li><a href="{{ route('admin.homeslider') }}">Sliders</a></li>
                         <li><a href="{{ route('admin.settings') }}">Settings</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a></li>
                         <form method="POST" id="logout-form" action="{{ route('logout') }}">

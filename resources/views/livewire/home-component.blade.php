@@ -626,7 +626,7 @@
       </div>
     </section>
 
-    <section class="content-inner-1 overlay-black-middle " style="background-image: url('{{ asset('assets/images/background/bg1.jpg') }}')">
+    <section class="content-inner overlay-black-middle " style="background-image: url('{{ asset('assets/images/background/bg1.jpg') }}')">
       <div class="container">
         <div class="row">
           <div
@@ -699,14 +699,14 @@
       </div>
     </section>
 
-    <section
+    {{-- <section
       class="content-inner-1 overlay-black-middle"
       style="
         background-image: url('{{ asset('assets/images/background/bg14.jpg') }}');
         background-size: cover;
         background-position: center;
       "
-    >
+        >
       <div class="container">
         <div
           class="section-head style-1 text-center aos-item"
@@ -753,5 +753,5 @@
           </div>
         </form>
       </div>
-    </section>
+    </section> --}}
   </div>

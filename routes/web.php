@@ -2,19 +2,30 @@
 
 use App\Http\Livewire\AboutComponent;
 use App\Http\Livewire\AdminAddBlogComponent;
+use App\Http\Livewire\AdminAddCareerComponent;
+use App\Http\Livewire\AdminAddCareerRequirementsComponent;
 use App\Http\Livewire\AdminAddCategoryComponent;
+use App\Http\Livewire\AdminAddHomeSliderComponent;
 use App\Http\Livewire\AdminAddServicesComponent;
 use App\Http\Livewire\AdminBlogComponent;
+use App\Http\Livewire\AdminCareerComponent;
+use App\Http\Livewire\AdminCareerRequirementsComponent;
 use App\Http\Livewire\AdminCategoryComponent;
 use App\Http\Livewire\AdminContactComponent;
 use App\Http\Livewire\AdminEditBlogComponent;
+use App\Http\Livewire\AdminEditCareerComponent;
+use App\Http\Livewire\AdminEditCareerRequirementsComponent;
 use App\Http\Livewire\AdminEditCategoryComponent;
+use App\Http\Livewire\AdminEditHomeSliderComponent;
 use App\Http\Livewire\AdminEditServicesComponent;
+use App\Http\Livewire\AdminHomeSliderComponent;
 use App\Http\Livewire\AdminServicesComponent;
 use App\Http\Livewire\AdminSettingComponent;
 use App\Http\Livewire\BlogDetailsComponent;
 use App\Http\Livewire\BlogsComponent;
 use App\Http\Livewire\BookingComponent;
+use App\Http\Livewire\CareerDetailsComponent;
+use App\Http\Livewire\CareersComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
@@ -52,6 +63,8 @@ Route::get('/wishlist', WishlistComponent::class)->name('wishlist');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/thank-you', ThankyouComponent::class)->name('thankyou');
 Route::get('/apply-booking', BookingComponent::class)->name('booking');
+Route::get('/careers', CareersComponent::class)->name('careers');
+Route::get('/career-details/{id}', CareerDetailsComponent::class)->name('career.details');
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -93,4 +106,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified' ,
     Route::get('/admin/blogs/add', AdminAddBlogComponent::class)->name('admin.addblog');
     Route::get('/admin/blogs/edit/{blog_slug}', AdminEditBlogComponent::class)->name('admin.editblog');
 
+    Route::get('/admin/slider', AdminHomeSliderComponent::class)->name('admin.homeslider');
+    Route::get('/admin/slider/add', AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
+    Route::get('/admin/slider/edit/{slide_id}', AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
+
+    Route::get('/admin/careers', AdminCareerComponent::class)->name('admin.careers');
+    Route::get('/admin/careers/edit/{career_id}', AdminEditCareerComponent::class)->name('admin.editcareer');
+    Route::get('/admin/careers/add', AdminAddCareerComponent::class)->name('admin.addcareer');
+
+    Route::get('/admin/careers/{career_id}/requirements/', AdminCareerRequirementsComponent::class)->name('admin.requirements');
+    Route::get('/admin/careers/{career_id}/requirements/add', AdminAddCareerRequirementsComponent::class)->name('admin.addrequirements');
+    Route::get('/admin/careers/{career_id}/requirements/edit', AdminEditCareerRequirementsComponent::class)->name('admin.editrequirements');
 });
