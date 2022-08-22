@@ -5,7 +5,7 @@
             <div class="dz-bnr-inr dz-bnr-inr-sm overlay-black-middle text-center" style="background-image: url({{ asset('assets/images/bnr/bnr1.jpg') }});">
                 <div class="container">
                     <div class="dz-bnr-inr-entry">
-                        <h1>Services (Our Services)</h1>
+                        <h1>Services</h1>
                         <!-- Breadcrumb Row -->
                         <nav aria-label="breadcrumb" class="breadcrumb-row">
                             <ul class="breadcrumb">

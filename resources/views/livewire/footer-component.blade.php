@@ -132,18 +132,18 @@
     <div class="container">
       <div class="footer-bottom">
         <div class="row align-items-center">
-          {{-- <div
+          <div
             class="col-lg-6 col-md-8 text-md-start text-center mb-md-0 mb-3"
           >
             <span class="copyright-text"
-              >Copyright © 2022
-              <a href="https://dexignzone.com/" target="_blank"
-                >DexignZone</a
+              >Developed By
+              <a href="https://ditherug.tech/" target="_blank"
+                >DITHER TECHNOLOGIES</a
               >. All rights reserved.</span
             >
-          </div> --}}
-          <div class="ccol-lg-6 col-md-8 text-md-start text-center mb-md-0 mb-3">
-            <div class="dz-social-icon float-md-start float-center">
+          </div>
+          <div class="col-lg-6 col-md-8 text-md-end text-center mb-md-0 mb-3">
+            <div class="dz-social-icon float-md-end float-end">
               <ul class="justify-content-center">
                 <li>
                   <a

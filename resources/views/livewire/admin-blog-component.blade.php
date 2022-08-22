@@ -48,7 +48,7 @@
                                         <td>{{date('d F, Y', strtotime(   $blog->created_at )) }}</td>
                                         <td>
                                             <a href="{{ route('admin.editblog', ['blog_slug'=> $blog->slug]) }}" ><i class="fa fa-edit text-white"></i></a>
-                                            <a href="#" onclick="confirm('Are you sure, You want to delete this Blog') || event.stopImmediatePropagation()" wire:click.prevent="deleteBlog({{ $blog->id }})" style="margin-left: 20px"><i class="fa fa-times text-danger"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure, You want to delete this Blog') || event.stopImmediatePropagation()" wire:click.prevent="deleteBlog({{ $blog->id }})" ><i class="fa fa-times text-danger"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

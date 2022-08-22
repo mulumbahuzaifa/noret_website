@@ -1,31 +1,38 @@
-<div>
+<div class="page-content bg-dark">
 
-<style>
-  nav svg{
-      height: 20px;
-  }
-  nav .hidden{
-      display: block !important;
-  }
-</style>
-<div class="container" style="padding: 70px 0; margin:0px auto 100px auto;">
+    <!-- Banner  -->
+    <div class="dz-bnr-inr dz-bnr-inr-sm overlay-black-middle text-center" style="background-image: url({{ asset('assets/images/bnr/bnr1.jpg') }});">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Services</h1>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"> Add Services</li>
+                        {{-- <li class="breadcrumb-item active" aria-current="page">Shop grid Sidebar</li> --}}
+                    </ul>
+                </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+    </div>
+  <div class="container">
   <div class="row">
       <div class="col-md-12">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <div class="row">
+          <div class="card">
+              <div class="card-header">
                       <div class="col-md-6">
                           Add New Service
                       </div>
-                      <div class="col-md-6">
-                          <a href="{{ route('admin.services') }}" style="color: whitesmoke"  class="btn btn-success pull-right"> All Services</a>
+                      <div class="col-md-3">
+                          <a href="{{ route('admin.services') }}" style="color: whitesmoke"  class="btn btn-danger pull-right"> All Services</a>
                       </div>
-                  </div>
               </div>
               @if (Session::has('message'))
                   <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
               @endif
-              <div class="panel-body">
+              <div class="card-body">
                   <form action="" class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent="addService">
                       <div class="p-2 form-group border">
                           <label for="" class="col-md-8 control-label"><h4>Service Name</h4></label>
@@ -75,8 +82,8 @@
                       <div class="p-2 form-group ">
                         <label for="" class="col-md-8 control-label">Description</label>
                         <div class="col-md-8 col-8" wire:ignore>
-                            <textarea name="" id="description"  rows="12"
-                            cols="80" placeholder="Description" wire:model="description"></textarea>
+                            <textarea name="" id="description"  rows="12" class="form-control"
+                            cols="100" placeholder="Description" wire:model="description"></textarea>
                             @error('description')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror

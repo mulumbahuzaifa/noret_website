@@ -1,50 +1,38 @@
-<div>
-                                 <!-- Banner Start -->
-  <section id="banner-section" class="">
-    <div class="overlay">
+<div class="page-content bg-dark">
+
+    <!-- Banner  -->
+    <div class="dz-bnr-inr dz-bnr-inr-sm overlay-black-middle text-center" style="background-image: url({{ asset('assets/images/bnr/bnr1.jpg') }});">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12 mb-10">
-                    <h1 class="text-light">Edit Blog</h1>
-                </div>
-                <div class="col-md-12">
-                    <ul class="d-flex justify-content-center">
-                        <li><a href="/">Home</a></li>
-                        <li><a class=""> - </a></li>
-                        <li><a class="active" href="#!">Blog</a></li>
+            <div class="dz-bnr-inr-entry">
+                <h1>Blogs</h1>
+                <!-- Breadcrumb Row -->
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"> Edit Blog</li>
+                        {{-- <li class="breadcrumb-item active" aria-current="page">Shop grid Sidebar</li> --}}
                     </ul>
-                </div>
+                </nav>
+                <!-- Breadcrumb Row End -->
             </div>
         </div>
     </div>
-</section>
-<!-- Banner End -->
-    <style>
-        nav svg{
-            height: 20px;
-        }
-        nav .hidden{
-            display: block !important;
-        }
-    </style>
-    <div class="container" style="padding: 70px 0; margin:0px auto 100px auto;"
+  <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Edit Blog
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{ route('admin.blogs') }}" style="color: whitesmoke"  class="btn btn-success pull-right"> All Blogs</a>
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="col-md-6">
+                            Edit Blog
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{ route('admin.blogs') }}" style="color: whitesmoke"  class="btn btn-success pull-right"> All Blogs</a>
                         </div>
                     </div>
                     @if (Session::has('message'))
                         <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
                     @endif
-                    <div class="panel-body">
+                    <div class="card-body">
                         <form action="" class="form-horizontal"  wire:submit.prevent="updateBlog">
                             <div class="form-group">
                                 <label for="" class="col-md-8 control-lable">Blog Name</label>
@@ -86,7 +74,8 @@
                             <div class="form-group">
                                 <label for="" class="col-md-8 control-lable">Description</label>
                                 <div class="col-md-8" wire:ignore>
-                                    <textarea name="" id="description"  placeholder="Description" wire:model="description"></textarea>
+                                    <textarea name="" id="description" rows="12" class="form-control"
+                                    cols="100" placeholder="Description" wire:model="description"></textarea>
                                     @error('description')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror

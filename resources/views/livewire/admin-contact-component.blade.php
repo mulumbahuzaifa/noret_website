@@ -37,6 +37,7 @@
                                     <th>Phone</th>
                                     <th>Comment</th>
                                     <th>Created At</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,11 +52,9 @@
                                         <td>{{ $contact->phone }}</td>
                                         <td>{{ str_limit(strip_tags($contact->message),30,'...')  }}</td>
                                         <td>{{date('d F, Y', strtotime( $contact->created_at )) }}</td>
-
-                                        {{-- <td>
-                                            <a href="{{ route('admin.editproperty', ['property_slug'=> $property->slug]) }}" ><i class="fa fa-edit fa-1x"></i></a>
-                                            <a href="#" onclick="confirm('Are you sure, You want to delete this property') || event.stopImmediatePropagation()" wire:click.prevent="deleteProperty({{ $property->id }})" style="margin-left: 10px"><i class="fa fa-times fa-1x text-danger"></i></a>
-                                        </td> --}}
+                                        <td>
+                                            <a href="#" onclick="confirm('Are you sure, You want to delete this Message') || event.stopImmediatePropagation()" wire:click.prevent="deleteContact({{ $contact->id }})" style="margin-left: 10px"><i class="fa fa-times fa-1x text-danger"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

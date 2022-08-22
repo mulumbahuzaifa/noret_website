@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-header">
                         <div class="col-md-6"><h4 class="text-white">All Services</h4></div>
-                        <div class="col-md-3" style="float: right;"><a href="{{ route('admin.addservice') }}" class="btn btn-success pull-right"> Add New Service</a></div>
+                        <div class="col-md-3" style="float: right;"><a href="{{ route('admin.addservice') }}" class="btn btn-danger pull-right"> Add New Service</a></div>
                   </div>
                   <div class="card-body">
                       @if (Session::has('message'))
@@ -48,7 +48,7 @@
                                       <td>{{ $service->category->name }}</td>
                                       <td>
                                           <a href="{{ route('admin.editservice', ['service_slug'=> $service->slug]) }}" ><i class="fa fa-edit text-white"></i></a>
-                                          <a href="#" onclick="confirm('Are you sure, You want to delete this service') || event.stopImmediatePropagation()" wire:click.prevent="deleteService({{ $service->id }})" style="margin-left: 20px"><i class="fa fa-times text-danger"></i></a>
+                                          <a href="#" onclick="confirm('Are you sure, You want to delete this service') || event.stopImmediatePropagation()" wire:click.prevent="deleteService({{ $service->id }})"><i class="fa fa-times text-danger"></i></a>
                                       </td>
                                   </tr>
                               @endforeach
